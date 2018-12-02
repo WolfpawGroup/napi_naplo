@@ -110,24 +110,20 @@ namespace napi_naplo
 
 		public static void generateKey(string user)
 		{
-			string s = Math.Truncate(((Math.PI * 3.33))).ToString();
+			string s = Math.Truncate(Math.PI * 3.33).ToString();
 			string ss = "";
 
 			foreach(byte b in md5.ComputeHash(Encoding.UTF8.GetBytes(user)))
 			{
 				ss += b.ToString("X2").ToUpper();
 			}
-
-			string sss = "";
-
+			
 			byte[] bbbbb = new SHA256CryptoServiceProvider().ComputeHash(Encoding.UTF8.GetBytes(s + ss + "|WOLFPAW"));
 
 			for (int i = 0; i < 24; i++)
 			{
 				key[i] = bbbbb[i];
 			}
-
-			
 		}
 
 		public static SQLiteConnection connect()
@@ -150,7 +146,7 @@ namespace napi_naplo
 
 		public static void createTables(SQLiteConnection sqlc)
 		{
-			if(sqlc.State != System.Data.ConnectionState.Open) { return; }
+			if(sqlc.State != ConnectionState.Open) { return; }
 			SQLiteCommand sqlk = new SQLiteCommand();
 
 			if (!tableExists(sqlc, "users"))
@@ -168,7 +164,7 @@ namespace napi_naplo
 
 		public static string addUser(SQLiteConnection sqlc, string username, string pass, string date, string email)
 		{
-			if (sqlc.State != System.Data.ConnectionState.Open) { return "ERROR:NoOpenConnection"; }
+			if (sqlc.State != ConnectionState.Open) { return "ERROR:NoOpenConnection"; }
 
 			SQLiteCommand sqlk = new SQLiteCommand("SELECT username FROM users", sqlc);
 			var r = sqlk.ExecuteReader();
@@ -186,7 +182,7 @@ namespace napi_naplo
 
 		public static void addData(SQLiteConnection sqlc, string date, string data, string username)
 		{
-			if (sqlc.State != System.Data.ConnectionState.Open) { return; }
+			if (sqlc.State != ConnectionState.Open) { return; }
 
 			int userid = getUserId(sqlc, username);
 
@@ -219,7 +215,7 @@ namespace napi_naplo
 
 		public static string deleteUser(SQLiteConnection sqlc, string username)
 		{
-			if (sqlc.State != System.Data.ConnectionState.Open) { return "ERROR:NoOpenConnection"; }
+			if (sqlc.State != ConnectionState.Open) { return "ERROR:NoOpenConnection"; }
 
 			SQLiteCommand sqlk = new SQLiteCommand("SELECT userid FROM users WHERE username = '" + username + "'", sqlc);
 			var r = sqlk.ExecuteScalar();
@@ -239,7 +235,7 @@ namespace napi_naplo
 
 		public static int getUserId(SQLiteConnection sqlc, string username)
 		{
-			if (sqlc.State != System.Data.ConnectionState.Open) { return -1; }
+			if (sqlc.State != ConnectionState.Open) { return -1; }
 
 			int ret = -1;
 
@@ -256,7 +252,7 @@ namespace napi_naplo
 		public static bool login(SQLiteConnection sqlc, string username, string password)
 		{
 			bool ret = false;
-			if (sqlc.State != System.Data.ConnectionState.Open) { return false; }
+			if (sqlc.State != ConnectionState.Open) { return false; }
 
 			SQLiteCommand sqlk = new SQLiteCommand("SELECT count(id) FROM users WHERE username = '" + username + "' and password= '" + password + "'", sqlc);
 			var rr = sqlk.ExecuteScalar();
@@ -268,7 +264,7 @@ namespace napi_naplo
 
 		public static string getData(SQLiteConnection sqlc, string date, string username)
 		{
-			if (sqlc.State != System.Data.ConnectionState.Open) { return "ERROR:NoOpenConnection"; }
+			if (sqlc.State != ConnectionState.Open) { return "ERROR:NoOpenConnection"; }
 
 			int userid = getUserId(sqlc, username);
 
@@ -286,6 +282,29 @@ namespace napi_naplo
 			}
 
 			return ret;
+		}
+
+		public static List<DateTime> getDatesWithData(SQLiteConnection sqlc, string username)
+		{
+			if (sqlc.State != ConnectionState.Open) { return null; }
+			int userid = getUserId(sqlc, username);
+			if (userid == -1) { return null; }
+
+			List<DateTime> dates = new List<DateTime>();
+
+			SQLiteCommand sqlk = new SQLiteCommand(string.Format("SELECT date FROM data WHERE userid = {0}", userid), sqlc);
+			var read = sqlk.ExecuteReader();
+
+			while(read.NextResult())
+			{
+				DateTime tmp = default(DateTime);
+				if(DateTime.TryParse(read.GetString(read.GetOrdinal("date")), out tmp))
+				{
+					dates.Add(tmp);
+				}
+			}
+
+			return dates;
 		}
 	}
 	

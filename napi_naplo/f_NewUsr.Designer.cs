@@ -37,6 +37,7 @@
 			this.btn_Cancel = new System.Windows.Forms.Button();
 			this.btn_Create = new System.Windows.Forms.Button();
 			this.lbl_Result = new System.Windows.Forms.Label();
+			this.btn_ShowHidePass = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -51,7 +52,7 @@
 			// label2
 			// 
 			this.label2.AutoSize = true;
-			this.label2.Location = new System.Drawing.Point(12, 35);
+			this.label2.Location = new System.Drawing.Point(12, 37);
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(59, 13);
 			this.label2.TabIndex = 1;
@@ -60,7 +61,7 @@
 			// label3
 			// 
 			this.label3.AutoSize = true;
-			this.label3.Location = new System.Drawing.Point(12, 61);
+			this.label3.Location = new System.Drawing.Point(12, 65);
 			this.label3.Name = "label3";
 			this.label3.Size = new System.Drawing.Size(38, 13);
 			this.label3.TabIndex = 2;
@@ -68,23 +69,27 @@
 			// 
 			// tb_Username
 			// 
-			this.tb_Username.Location = new System.Drawing.Point(79, 6);
+			this.tb_Username.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.tb_Username.Location = new System.Drawing.Point(79, 2);
 			this.tb_Username.Name = "tb_Username";
-			this.tb_Username.Size = new System.Drawing.Size(188, 20);
+			this.tb_Username.Size = new System.Drawing.Size(261, 26);
 			this.tb_Username.TabIndex = 3;
 			// 
 			// tb_Pass
 			// 
-			this.tb_Pass.Location = new System.Drawing.Point(79, 32);
+			this.tb_Pass.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+			this.tb_Pass.Location = new System.Drawing.Point(79, 30);
 			this.tb_Pass.Name = "tb_Pass";
-			this.tb_Pass.Size = new System.Drawing.Size(188, 20);
+			this.tb_Pass.PasswordChar = '•';
+			this.tb_Pass.Size = new System.Drawing.Size(236, 26);
 			this.tb_Pass.TabIndex = 4;
 			// 
 			// tb_Email
 			// 
+			this.tb_Email.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.tb_Email.Location = new System.Drawing.Point(79, 58);
 			this.tb_Email.Name = "tb_Email";
-			this.tb_Email.Size = new System.Drawing.Size(188, 20);
+			this.tb_Email.Size = new System.Drawing.Size(261, 26);
 			this.tb_Email.TabIndex = 5;
 			// 
 			// btn_Cancel
@@ -99,7 +104,7 @@
 			// 
 			// btn_Create
 			// 
-			this.btn_Create.Location = new System.Drawing.Point(192, 106);
+			this.btn_Create.Location = new System.Drawing.Point(265, 106);
 			this.btn_Create.Name = "btn_Create";
 			this.btn_Create.Size = new System.Drawing.Size(75, 23);
 			this.btn_Create.TabIndex = 7;
@@ -117,12 +122,26 @@
 			this.lbl_Result.Size = new System.Drawing.Size(0, 16);
 			this.lbl_Result.TabIndex = 8;
 			// 
+			// btn_ShowHidePass
+			// 
+			this.btn_ShowHidePass.BackgroundImage = global::napi_naplo.Properties.Resources.eye;
+			this.btn_ShowHidePass.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+			this.btn_ShowHidePass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btn_ShowHidePass.Location = new System.Drawing.Point(314, 30);
+			this.btn_ShowHidePass.Name = "btn_ShowHidePass";
+			this.btn_ShowHidePass.Size = new System.Drawing.Size(26, 26);
+			this.btn_ShowHidePass.TabIndex = 9;
+			this.btn_ShowHidePass.UseVisualStyleBackColor = true;
+			this.btn_ShowHidePass.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btn_ShowHidePass_MouseDown);
+			this.btn_ShowHidePass.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btn_ShowHidePass_MouseUp);
+			// 
 			// f_NewUsr
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(279, 141);
+			this.ClientSize = new System.Drawing.Size(350, 141);
 			this.ControlBox = false;
+			this.Controls.Add(this.btn_ShowHidePass);
 			this.Controls.Add(this.lbl_Result);
 			this.Controls.Add(this.btn_Create);
 			this.Controls.Add(this.btn_Cancel);
@@ -135,7 +154,7 @@
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
 			this.Name = "f_NewUsr";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-			this.Text = "New User";
+			this.Text = "DailyDiary - New User";
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -152,5 +171,6 @@
 		private System.Windows.Forms.Button btn_Cancel;
 		private System.Windows.Forms.Button btn_Create;
 		private System.Windows.Forms.Label lbl_Result;
+		private System.Windows.Forms.Button btn_ShowHidePass;
 	}
 }

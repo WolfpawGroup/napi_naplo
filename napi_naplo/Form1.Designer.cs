@@ -165,8 +165,6 @@
 			this.mc_Calendar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-			this.mc_Calendar.BoldedDates = new System.DateTime[] {
-        new System.DateTime(2018, 3, 23, 0, 0, 0, 0)};
 			this.mc_Calendar.CalendarDimensions = new System.Drawing.Size(4, 1);
 			this.mc_Calendar.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
 			this.mc_Calendar.Location = new System.Drawing.Point(7, 5);

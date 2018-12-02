@@ -67,5 +67,11 @@ namespace napi_naplo
 				btn_Cancel_Click(null, null);
 			}
 		}
+
+		private void btn_Forgot_Click(object sender, EventArgs e)
+		{
+			f_Reminder fr = new f_Reminder();
+			fr.ShowDialog();
+		}
 	}
 }

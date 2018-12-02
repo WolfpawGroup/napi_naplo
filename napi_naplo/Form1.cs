@@ -28,7 +28,19 @@ namespace napi_naplo
 		private void Form1_Load(object sender, EventArgs e)
 		{
 			toolStripStatusLabel1.Text = "Logged in as: " + loggedInAs;
+			getDates();
+		}
 
+		public void getDates()
+		{
+			List<DateTime> dates = c_DBManager.getDatesWithData(sqlc, loggedInAs);
+			foreach(var d in dates)
+			{
+				mc_Calendar.AddAnnuallyBoldedDate(d);
+			}
+			mc_Calendar.Font = new Font("Courier New", 12, FontStyle.Regular);
+			mc_Calendar.Update();
+			mc_Calendar.UpdateBoldedDates();
 		}
 
 		private void splitContainer1_Panel1_SizeChanged(object sender, EventArgs e)

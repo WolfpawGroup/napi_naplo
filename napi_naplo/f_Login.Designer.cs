@@ -35,6 +35,7 @@
 			this.btn_Cancel = new System.Windows.Forms.Button();
 			this.btn_NewUser = new System.Windows.Forms.Button();
 			this.btn_Login = new System.Windows.Forms.Button();
+			this.btn_Forgot = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// label1
@@ -59,7 +60,7 @@
 			// 
 			this.tb_Username.Location = new System.Drawing.Point(77, 6);
 			this.tb_Username.Name = "tb_Username";
-			this.tb_Username.Size = new System.Drawing.Size(208, 20);
+			this.tb_Username.Size = new System.Drawing.Size(305, 20);
 			this.tb_Username.TabIndex = 2;
 			this.tb_Username.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_Username_KeyDown);
 			// 
@@ -68,7 +69,7 @@
 			this.tb_Pass.Location = new System.Drawing.Point(77, 33);
 			this.tb_Pass.Name = "tb_Pass";
 			this.tb_Pass.PasswordChar = '*';
-			this.tb_Pass.Size = new System.Drawing.Size(208, 20);
+			this.tb_Pass.Size = new System.Drawing.Size(305, 20);
 			this.tb_Pass.TabIndex = 3;
 			this.tb_Pass.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tb_Username_KeyDown);
 			// 
@@ -94,7 +95,7 @@
 			// 
 			// btn_Login
 			// 
-			this.btn_Login.Location = new System.Drawing.Point(197, 63);
+			this.btn_Login.Location = new System.Drawing.Point(294, 63);
 			this.btn_Login.Name = "btn_Login";
 			this.btn_Login.Size = new System.Drawing.Size(88, 23);
 			this.btn_Login.TabIndex = 6;
@@ -102,12 +103,23 @@
 			this.btn_Login.UseVisualStyleBackColor = true;
 			this.btn_Login.Click += new System.EventHandler(this.btn_Login_Click);
 			// 
+			// btn_Forgot
+			// 
+			this.btn_Forgot.Location = new System.Drawing.Point(200, 63);
+			this.btn_Forgot.Name = "btn_Forgot";
+			this.btn_Forgot.Size = new System.Drawing.Size(88, 23);
+			this.btn_Forgot.TabIndex = 7;
+			this.btn_Forgot.Text = "Reminder";
+			this.btn_Forgot.UseVisualStyleBackColor = true;
+			this.btn_Forgot.Click += new System.EventHandler(this.btn_Forgot_Click);
+			// 
 			// f_Login
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(298, 98);
+			this.ClientSize = new System.Drawing.Size(392, 98);
 			this.ControlBox = false;
+			this.Controls.Add(this.btn_Forgot);
 			this.Controls.Add(this.btn_Login);
 			this.Controls.Add(this.btn_NewUser);
 			this.Controls.Add(this.btn_Cancel);
@@ -133,5 +145,6 @@
 		private System.Windows.Forms.Button btn_Cancel;
 		private System.Windows.Forms.Button btn_NewUser;
 		private System.Windows.Forms.Button btn_Login;
+		private System.Windows.Forms.Button btn_Forgot;
 	}
 }

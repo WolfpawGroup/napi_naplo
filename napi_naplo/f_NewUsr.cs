@@ -31,6 +31,7 @@ namespace napi_naplo
 			}
 			else
 			{
+				
 				this.Close();
 			}
 		}
@@ -38,6 +39,16 @@ namespace napi_naplo
 		private void btn_Cancel_Click(object sender, EventArgs e)
 		{
 			this.Close();
+		}
+
+		private void btn_ShowHidePass_MouseDown(object sender, MouseEventArgs e)
+		{
+			tb_Pass.PasswordChar = '\0';
+		}
+
+		private void btn_ShowHidePass_MouseUp(object sender, MouseEventArgs e)
+		{
+			tb_Pass.PasswordChar = '•';
 		}
 	}
 }
