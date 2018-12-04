@@ -40,7 +40,7 @@
 			this.btn_Search = new System.Windows.Forms.ToolStripButton();
 			this.btn_Print = new System.Windows.Forms.ToolStripButton();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-			this.mc_Calendar = new System.Windows.Forms.MonthCalendar();
+			this.mc_Calendar = new c_MyCalendar();
 			this.tb_Data = new System.Windows.Forms.TextBox();
 			this.panel1 = new System.Windows.Forms.Panel();
 			this.lbl_Date = new System.Windows.Forms.Label();
@@ -257,7 +257,7 @@
 		private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
 		private System.Windows.Forms.ToolStripButton btn_Search;
 		private System.Windows.Forms.SplitContainer splitContainer1;
-		private System.Windows.Forms.MonthCalendar mc_Calendar;
+		private c_MyCalendar mc_Calendar;
 		private System.Windows.Forms.TextBox tb_Data;
 		private System.Windows.Forms.Panel panel1;
 		private System.Windows.Forms.Button btn_Save;

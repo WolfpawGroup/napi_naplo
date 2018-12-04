@@ -295,7 +295,7 @@ namespace napi_naplo
 			SQLiteCommand sqlk = new SQLiteCommand(string.Format("SELECT date FROM data WHERE userid = {0}", userid), sqlc);
 			var read = sqlk.ExecuteReader();
 
-			while(read.NextResult())
+			while(read.Read())
 			{
 				DateTime tmp = default(DateTime);
 				if(DateTime.TryParse(read.GetString(read.GetOrdinal("date")), out tmp))
